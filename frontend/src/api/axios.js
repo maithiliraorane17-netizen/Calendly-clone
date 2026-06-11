@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://calendly-clone-s6g3.onrender.com",
+  baseURL: import.meta.env.VITE_API_URL || "https://calendly-clone-s6g3.onrender.com/api",
   withCredentials: true, // cookies (refresh token) ke liye
   headers: { "Content-Type": "application/json" },
 });
@@ -26,7 +26,7 @@ API.interceptors.response.use(
       original._retry = true;
       try {
         const res = await axios.post(
-          `${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/auth/refresh`,
+          `${import.meta.env.VITE_API_URL || "https://calendly-clone-s6g3.onrender.com/api"}/auth/refresh`,
           {},
           { withCredentials: true }
         );
